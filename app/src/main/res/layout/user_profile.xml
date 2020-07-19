@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".User_Profile_Page">
+
+    <RelativeLayout
+        android:id="@+id/ProfileSection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/r1"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/profileshape">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/Profileimage"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp"
+                android:src="@drawable/download1"
+                app:civ_border_color="#fff"
+                app:civ_border_width="4dp" />
+
+            <Button
+                android:id="@+id/photobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@id/Profileimage"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape2"
+                android:text="Update"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/Profilename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/photobutton"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:text="Prabhat Upadhyay"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:textSize="22sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/l2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/r1"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif"
+                android:text="Email Address"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/Profileemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:paddingTop="5dp"
+                android:text="user@xyz.com"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l2"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif"
+                android:text="Phone Number"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/Profilephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:paddingTop="5dp"
+                android:text="870056XXXX"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l3"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:text="Update your profile"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="2"
+                android:gravity="end"
+                android:paddingEnd="20sp"
+                android:text=">"
+                android:textColor="#000"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/nav_background"
+            app:itemIconSize="30dp"
+            app:itemIconTint="@color/colorPrimary"
+            app:itemTextColor="@color/colorPrimary"
+            app:menu="@menu/bottom_nav_menu" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Update your profile here"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/cut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/ic_close_black_24dp" />
+
+        <EditText
+            android:id="@+id/profienameeditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text"
+            android:layout_margin="15dp"
+            android:background="@drawable/border"
+            android:drawableStart="@drawable/ic_person_black_24dp"
+            android:drawablePadding="5dp"
+            android:drawableTint="#2196F3"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:padding="15dp"
+            android:textColor="#000"
+            android:textColorHint="#000" />
+
+        <EditText
+            android:id="@+id/profilephoneeditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profienameeditText"
+            android:layout_margin="15dp"
+            android:background="@drawable/border"
+            android:drawableStart="@drawable/ic_phone_in_talk_black_24dp"
+            android:drawablePadding="5dp"
+            android:hint="Number"
+            android:inputType="numberDecimal"
+            android:padding="15dp"
+            android:textColor="#000"
+            android:textColorHint="#000" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profilephoneeditText"
+            android:layout_margin="15dp"
+            android:background="@drawable/shape"
+            android:text="Submit"
+            android:textColor="#fff" />
+    </RelativeLayout>
+
+</RelativeLayout>

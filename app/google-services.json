@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "211201985614",
+    "firebase_url": "https://rent-and-sell-8a22b.firebaseio.com",
+    "project_id": "rent-and-sell-8a22b",
+    "storage_bucket": "rent-and-sell-8a22b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211201985614:android:83d2c804a20ba6886b071f",
+        "android_client_info": {
+          "package_name": "com.prabhat.mainactivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211201985614-ufg9t4igl8leoi8agvkqdr2t9lqso4r4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlJWQ3lGfAM3t3ci6mkxBXle0W-udB60E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211201985614-ufg9t4igl8leoi8agvkqdr2t9lqso4r4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

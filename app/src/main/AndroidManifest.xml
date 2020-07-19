@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.prabhat.mainactivity">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Rent And Sell"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/RentandSell">
+        <activity
+            android:name=".Login_Details.Forget_Page"
+            android:theme="@style/login" />
+        <activity
+            android:name=".Login_Details.SignUp_Page"
+            android:theme="@style/login" />
+        <activity
+            android:name=".Login_Details.Login_Page"
+            android:theme="@style/login" />
+        <activity
+            android:name=".Photo_Full_Screen"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".Ads_Update_Section"
+            android:icon="@drawable/rentlogo"
+            android:label="@string/update"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_Ads_Page"
+            android:label="@string/youradd"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".Ads_fullDescription"
+            android:label="@string/rentandearn"
+            android:screenOrientation="userPortrait" />
+        <activity
+            android:name=".User_Profile_Page"
+            android:label="@string/profile"
+            android:screenOrientation="portrait"
+            android:theme="@style/login" />
+        <activity
+            android:name=".Home_Page"
+            android:label="@string/rentandearn"
+            android:logo="@drawable/ic_email_black_24dp"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7727898151437452~1085840402" />
+
+        <activity
+            android:name=".Post_Ads_Page"
+            android:label="@string/post"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".About_Page"
+            android:label="@string/a"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Splash_screen"
+            android:screenOrientation="portrait"
+            android:theme="@style/login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

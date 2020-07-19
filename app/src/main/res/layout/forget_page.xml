@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#222"
+    tools:context=".Login_Details.Forget_Page">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/rentlogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="380dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginEnd="30dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Forget Password"
+                    android:textAlignment="center"
+                    android:textColor="#000"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/signinforget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="335dp"
+                    android:layout_marginEnd="60dp"
+                    android:layout_marginBottom="15dp"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif-light"
+                    android:linksClickable="true"
+                    android:longClickable="true"
+                    android:text="Sign In"
+                    android:textAlignment="center"
+                    android:textColor="#2196F3"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="80dp"
+                    android:fallbackLineSpacing="true"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="5dp"
+                    android:text="To reset your password, enter the email address registered with app"
+                    android:textColor="#555"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/loginbtn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="260dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/shape"
+                    android:clickable="false"
+                    android:drawableStart="@drawable/ic_vpn_key_black_24dp"
+                    android:fontFamily="sans-serif-light"
+                    android:longClickable="true"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="30dp"
+                    android:text="Reset Password"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/email3"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="180dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/shape2"
+                    android:backgroundTint="#D6D6D6"
+                    android:drawableStart="@drawable/ic_email_black_24dp"
+                    android:ems="10"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="Enter your email"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="10dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:textSize="15dp" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

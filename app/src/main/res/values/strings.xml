@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">MainActivity</string>
+    <string name="title_activity_home">home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="facebook_app_id">[APP_ID]</string>
+    <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
+    <string name="title_activity_rentand_earn">Rent and Earn</string>
+    <string name="title_activity_rentand_earn1">Rent and Earn</string>
+    <string name="a"><b>About Us</b></string>
+    <string name="p"><u>Update profile</u></string>
+    <string name="signup"><u>Sign In</u></string>
+    <string name="clickhere"><u>Forget your password</u></string>
+    <string name="signin"><u>Create your account here</u></string>
+    <string name="rentandearn"><b>Rent And Earn</b></string>
+    <string name="profile"><b>Profile</b></string>
+    <string name="youradd"><b>Your Ads</b></string>
+    <string name="post"><b>Post your Ads here</b></string>
+    <string name="update"><b>Update or Delete your Ads</b></string>
+    <string name="profilemenu">Profile</string>
+    <string name="adsmenu">Your Ads</string>
+    <string name="about">About Us</string>
+    <string name="signout">Sign Out</string>
+    <string name="are"><b>\nAre You Sure</b></string>
+    <string name="yes"><b>YES</b></string>
+    <string name="no"><b>NO</b></string>
+    <string name="exit"><b>Exit</b></string>
+    <string name="delete"><b>Delete</b></string>
+    <string name="dev">String developerName = "\"Prabhat Upadhyay"\"</string>
+    <string-array name="array">
+        <item>Rent</item>
+        <item>Sell</item>
+    </string-array>
+</resources>
