@@ -1,4 +1,4 @@
-package com.prabhat.mainactivity;
+package com.prabhat.mainactivity.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +29,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.prabhat.mainactivity.Adapter.Home_Adapter;
 import com.prabhat.mainactivity.Login_Details.Login_Page;
 import com.prabhat.mainactivity.Model.Home_model;
+import com.prabhat.mainactivity.R;
 
 import java.util.ArrayList;
 
@@ -122,11 +123,12 @@ public class Home_Page extends AppCompatActivity {
                         Intent intent3 = new Intent(Home_Page.this, User_Profile_Page.class);
                         overridePendingTransition(0, 0);
                         startActivity(intent3);
+                        overridePendingTransition(0,0);
                         break;
                     case R.id.rent:
                         Intent intent = new Intent(Home_Page.this, Post_Ads_Page.class);
                         intent.putExtra("Email1", Email1);
-                        overridePendingTransition(1, 0);
+                        overridePendingTransition(0,0);
                         startActivity(intent);
                         break;
                     case R.id.yourad:

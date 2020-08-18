@@ -1,4 +1,4 @@
-package com.prabhat.mainactivity;
+package com.prabhat.mainactivity.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,8 +22,10 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.prabhat.mainactivity.Adapter.User_Ads_Adapter;
+import com.prabhat.mainactivity.Adapter.Home_Adapter;
+
 import com.prabhat.mainactivity.Model.Home_model;
+import com.prabhat.mainactivity.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +36,7 @@ public class User_Ads_Page extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     //    FirestoreRecyclerAdapter firestoreRecyclerAdapter;
     // String modelEmail;
-    User_Ads_Adapter adapter;
+    Home_Adapter adapter;
     List<Home_model> list = new ArrayList<>();
 
     @Override
@@ -49,9 +51,8 @@ public class User_Ads_Page extends AppCompatActivity {
 
         String emailid = firebaseAuth.getCurrentUser().getEmail();
 
-        adapter = new User_Ads_Adapter(list, this, Ads_Update_Section.class);
+        adapter = new Home_Adapter(list, this, Ads_Update_Section.class);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
 
         final SwipeRefreshLayout refreshLayout = findViewById(R.id.refresh);
         refreshLayout.setProgressBackgroundColorSchemeColor(Color.WHITE);
@@ -111,6 +112,7 @@ public class User_Ads_Page extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.yourad:
+                        break;
                 }
                 return true;
             }

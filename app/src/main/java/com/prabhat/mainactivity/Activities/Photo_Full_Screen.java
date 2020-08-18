@@ -1,4 +1,4 @@
-package com.prabhat.mainactivity;
+package com.prabhat.mainactivity.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.prabhat.mainactivity.R;
 import com.squareup.picasso.Picasso;
 public class Photo_Full_Screen extends AppCompatActivity {
 

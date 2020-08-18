@@ -1,9 +1,8 @@
-package com.prabhat.mainactivity;
+package com.prabhat.mainactivity.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -32,6 +31,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.prabhat.mainactivity.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -161,14 +161,14 @@ public class User_Profile_Page extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.navigation_home:
                         Intent intent2 = new Intent(User_Profile_Page.this, Home_Page.class);
-                        overridePendingTransition(1, 0);
+                        overridePendingTransition(0, 0);
                         startActivity(intent2);
                         break;
                     case R.id.profile:
                         break;
                     case R.id.rent:
                         Intent intent = new Intent(User_Profile_Page.this, Post_Ads_Page.class);
-                        overridePendingTransition(1, 0);
+                        overridePendingTransition(0, 0);
                         startActivity(intent);
                         break;
                     case R.id.yourad:

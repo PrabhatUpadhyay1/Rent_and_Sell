@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -20,7 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.prabhat.mainactivity.Home_Page;
+import com.prabhat.mainactivity.Activities.Home_Page;
 import com.prabhat.mainactivity.R;
 
 public class Login_Page extends AppCompatActivity {
@@ -30,7 +30,7 @@ public class Login_Page extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     String Email2;
     ProgressDialog dialog;
-
+    RelativeLayout Login;
     @Override
     protected void onStart() {
         super.onStart();
@@ -51,6 +51,7 @@ public class Login_Page extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         Email = findViewById(R.id.email1);
         Password = findViewById(R.id.password1);
+        Login=findViewById(R.id.Login);
 
         //****---------> Create Account TextView
         TextView creataccount = findViewById(R.id.creataccount);
@@ -58,6 +59,7 @@ public class Login_Page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login_Page.this, SignUp_Page.class));
+                overridePendingTransition(0,0);
                 finish();
             }
         });
@@ -68,6 +70,7 @@ public class Login_Page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login_Page.this, Forget_Page.class));
+                overridePendingTransition(0,0);
                 finish();
 
             }
@@ -84,12 +87,13 @@ public class Login_Page extends AppCompatActivity {
 
     }
 
-//    private void snackbarShow(Exception e) {
-//        Snackbar.make(Login, e.getMessage(), Snackbar.LENGTH_LONG)
-//                .setActionTextColor(getResources().getColor(R.color.White))
-//                .setDuration(1500)
-//                .show();
-//    }
+    private void snackbarShow(Exception e) {
+        Snackbar.make(Login, e.getMessage(), Snackbar.LENGTH_LONG)
+                .setActionTextColor(getResources().getColor(R.color.White))
+                .setBackgroundTint(getResources().getColor(R.color.colorPrimary))
+                .setDuration(2000)
+                .show();
+    }
 
     private void showLoad() {
         dialog.show();
@@ -97,26 +101,25 @@ public class Login_Page extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
     }
 
-
     //Sign in with firebase function
     private void SignIn() {
         Email2 = Email.getText().toString();
         String Password2 = Password.getText().toString();
         if (Email2.isEmpty()) {
-            Email.setError("Please provide Emailid");
-
+            Email.setError("Please provide Email Id");
+            Email.requestFocus();
         }
         if (Password2.isEmpty()) {
             Password.setError("Please provide password");
-
+            Password.requestFocus();
         }
-        if (!(Email2.equals(null) && Password2.equals(null))) {
+        if (!Email2.isEmpty() && !Password2.isEmpty()) {
             showLoad();
             firebaseAuth.signInWithEmailAndPassword(Email2, Password2).addOnCompleteListener(Login_Page.this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (!task.isSuccessful()) {
-//                        Toast.makeText(Login_Page.this, "Login Unsuccessful Please try again", Toast.LENGTH_LONG).show();
+                        snackbarShow(task.getException());
                         dialog.hide();
                     } else {
                         Intent intent = new Intent(Login_Page.this, Home_Page.class);
@@ -124,16 +127,13 @@ public class Login_Page extends AppCompatActivity {
                         dialog.hide();
                         finish();
                         startActivity(intent);
-
                     }
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     dialog.hide();
-                    Toast.makeText(Login_Page.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    //snackbarShow(e);
-
+                    snackbarShow(e);
                 }
             });
         }

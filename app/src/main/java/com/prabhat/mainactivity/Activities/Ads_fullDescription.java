@@ -1,4 +1,4 @@
-package com.prabhat.mainactivity;
+package com.prabhat.mainactivity.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,13 +12,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.prabhat.mainactivity.R;
 import com.squareup.picasso.Picasso;
 
 public class Ads_fullDescription extends AppCompatActivity {
@@ -65,6 +65,7 @@ public class Ads_fullDescription extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Ads_fullDescription.this, Photo_Full_Screen.class);
                 intent.putExtra("image", image);
+                overridePendingTransition(0,0);
                 startActivity(intent);
             }
         });

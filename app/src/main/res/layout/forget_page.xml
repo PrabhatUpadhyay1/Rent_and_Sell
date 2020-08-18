@@ -1,131 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#222"
+    android:id="@+id/Forget"
+    android:background="#fff"
     tools:context=".Login_Details.Forget_Page">
 
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:src="@drawable/rentlogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/back"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_baseline_keyboard_arrow_left_24"/>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_below="@id/back"
+        android:layout_width="170dp"
+        android:layout_height="130dp"
+        android:src="@drawable/forget"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:elevation="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="350dp"
+        android:layout_height="380dp"
+        android:layout_below="@id/logo"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:background="#fff">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="350dp"
-            android:layout_height="380dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/doppio_one"
+            android:text="Forget password"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="160dp"
-            android:layout_marginEnd="30dp"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="0dp">
+            android:textColor="#000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#fff">
+        <TextView
+            android:id="@+id/signinforget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="310dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="15dp"
+            android:clickable="true"
+            android:fontFamily="@font/doppio_one"
+            android:linksClickable="true"
+            android:longClickable="true"
+            android:text="Sign In"
+            android:textAlignment="center"
+            android:textColor="#2196F3"
+            android:textSize="18sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="sans-serif-light"
-                    android:text="Forget Password"
-                    android:textAlignment="center"
-                    android:textColor="#000"
-                    android:textSize="25dp"
-                    android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="80dp"
+            android:fallbackLineSpacing="true"
+            android:fontFamily="@font/doppio_one"
+            android:text="To reset your password, enter the email address registered with app"
+            android:textColor="#555"
+            android:layout_marginStart="30dp"
+            android:textSize="17sp" />
 
-                <TextView
-                    android:id="@+id/signinforget"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="335dp"
-                    android:layout_marginEnd="60dp"
-                    android:layout_marginBottom="15dp"
-                    android:clickable="true"
-                    android:fontFamily="sans-serif-light"
-                    android:linksClickable="true"
-                    android:longClickable="true"
-                    android:text="Sign In"
-                    android:textAlignment="center"
-                    android:textColor="#2196F3"
-                    android:textSize="18dp" />
+        <Button
+            android:id="@+id/loginbtn2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="230dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/shape"
+            android:clickable="false"
+            android:backgroundTint="#fff"
+            android:elevation="15dp"
+            android:drawableStart="@drawable/ic_vpn_key_black_24dp"
+            android:fontFamily="@font/doppio_one"
+            android:longClickable="true"
+            android:paddingStart="10dp"
+            android:paddingEnd="30dp"
+            android:text="Reset Password"
+            android:textAllCaps="false"
+            android:drawableTint="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="80dp"
-                    android:fallbackLineSpacing="true"
-                    android:fontFamily="sans-serif-light"
-                    android:lineSpacingExtra="5dp"
-                    android:text="To reset your password, enter the email address registered with app"
-                    android:textColor="#555"
-                    android:textSize="16dp" />
+        <EditText
+            android:id="@+id/email3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/shape"
+            android:backgroundTint="#F4F4F4"
+            android:drawableStart="@drawable/ic_email_black_24dp"
+            android:ems="10"
+            android:elevation=".5dp"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/doppio_one"
+            android:drawablePadding="10dp"
+            android:hint="Enter your email"
+            android:inputType="textEmailAddress"
+            android:paddingStart="10dp"
+            android:textColor="#000"
+            android:textColorHint="#000"
+            android:textSize="15dp" />
 
-                <Button
-                    android:id="@+id/loginbtn2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="260dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/shape"
-                    android:clickable="false"
-                    android:drawableStart="@drawable/ic_vpn_key_black_24dp"
-                    android:fontFamily="sans-serif-light"
-                    android:longClickable="true"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="30dp"
-                    android:text="Reset Password"
-                    android:textAllCaps="false"
-                    android:textColor="#fff"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/email3"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="180dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/shape2"
-                    android:backgroundTint="#D6D6D6"
-                    android:drawableStart="@drawable/ic_email_black_24dp"
-                    android:ems="10"
-                    android:focusableInTouchMode="true"
-                    android:fontFamily="sans-serif-light"
-                    android:hint="Enter your email"
-                    android:inputType="textEmailAddress"
-                    android:paddingStart="10dp"
-                    android:textColor="#000"
-                    android:textColorHint="#000"
-                    android:textSize="15dp" />
-
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

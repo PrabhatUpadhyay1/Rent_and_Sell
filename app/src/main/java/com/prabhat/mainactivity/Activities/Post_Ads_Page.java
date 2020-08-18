@@ -1,15 +1,20 @@
-package com.prabhat.mainactivity;
+package com.prabhat.mainactivity.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,7 +24,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Switch;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +38,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.prabhat.mainactivity.R;
+
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -49,11 +56,13 @@ public class Post_Ads_Page extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     EditText productname, productdescription, productprice;
     String productname1, productdescription1, productprice1;
-    Switch aSwitch;
+    SwitchCompat aSwitch;
     Snackbar snackbar;
     String status = null;
     ProgressDialog dialogClass;
-    ConstraintLayout PostAd;
+    RelativeLayout PostAd;
+
+    private static final int STORAGE_PERMISSION_CODE = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,16 +107,15 @@ public class Post_Ads_Page extends AppCompatActivity {
         });
 
 
-        imageViewinput.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent, gallary_pic);
-            }
-        });
+//        imageViewinput.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setAction(Intent.ACTION_GET_CONTENT);
+//                intent.setType("image/*");
+//                startActivityForResult(intent, gallary_pic);
+//            }
+//        });
 
         final BottomNavigationView navView = findViewById(R.id.navigation);
         navView.setSelectedItemId(R.id.rent);
@@ -123,13 +131,13 @@ public class Post_Ads_Page extends AppCompatActivity {
                     case R.id.navigation_home:
                         Intent intent = new Intent(Post_Ads_Page.this, Home_Page.class);
                         intent.putExtra("Email1", Email1);
-                        overridePendingTransition(1, 0);
+                        overridePendingTransition(0, 0);
                         startActivity(intent);
                         break;
                     case R.id.profile:
                         Intent intent2 = new Intent(Post_Ads_Page.this, User_Profile_Page.class);
                         intent2.putExtra("Email1", Email1);
-                        overridePendingTransition(1, 0);
+                        overridePendingTransition(0, 0);
                         startActivity(intent2);
                         break;
                     case R.id.rent:
@@ -149,13 +157,11 @@ public class Post_Ads_Page extends AppCompatActivity {
         imageViewinput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent, gallaypick);
-
+                checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, STORAGE_PERMISSION_CODE);
             }
         });
+
+        //post add
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -165,20 +171,23 @@ public class Post_Ads_Page extends AppCompatActivity {
                 if (productname1.isEmpty()) {
                     productname.requestFocus();
                     productname.setError("Product name is empty");
-                } else if (productprice1.isEmpty()) {
+                }
+                if (productprice1.isEmpty()) {
                     productname.requestFocus();
                     productprice.setError("Product price is empty");
-                } else if (productdescription1.isEmpty()) {
+                }
+                if (productdescription1.isEmpty()) {
                     productname.requestFocus();
                     productdescription.setError("Description is empty");
-                } else if (imageuri == null) {
+                }
+                if (imageuri == null) {
                     Toast.makeText(Post_Ads_Page.this, "Image is compulsory", Toast.LENGTH_SHORT).show();
                     imageViewinput.requestFocus();
                     com.setVisibility(View.VISIBLE);
-                } else if (!(productname1.isEmpty() && productprice1.isEmpty() && productdescription1.isEmpty() && imageViewinput != null)) {
+                }
+                if (!productname1.isEmpty() && !productprice1.isEmpty() && !productdescription1.isEmpty() && imageViewinput != null) {
                     if (imageuri != null) {
                         showLoad();
-
                         final StorageReference ref = storageReference.child("Image" + UUID.randomUUID());
                         ref.putFile(imageuri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
@@ -192,6 +201,7 @@ public class Post_Ads_Page extends AppCompatActivity {
                                         firebaseFirestore.collection("User").document(profileEmail).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                             @Override
                                             public void onSuccess(DocumentSnapshot documentSnapshot) {
+
                                                 String imagelinl = uri.toString();
                                                 Log.i("imge", imagelinl);
                                                 final HashMap<String, Object> hashMap = new HashMap<>();
@@ -206,7 +216,6 @@ public class Post_Ads_Page extends AppCompatActivity {
                                                 hashMap.put("status", status);
                                                 hashMap.put("Email", profileEmail);
 
-
                                                 firebaseFirestore.collection(profileEmail).document(id).set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void aVoid) {
@@ -219,8 +228,14 @@ public class Post_Ads_Page extends AppCompatActivity {
                                                                 startActivity(new Intent(Post_Ads_Page.this, Home_Page.class));
                                                                 finish();
                                                                 String X = " Congratulations! Your ad is Live now";
+                                                                createChannel();
                                                                 notification(X);
-
+                                                            }
+                                                        }).addOnFailureListener(new OnFailureListener() {
+                                                            @Override
+                                                            public void onFailure(@NonNull Exception e) {
+                                                                dialogClass.hide();
+                                                                Toast.makeText(Post_Ads_Page.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                                             }
                                                         });
                                                     }
@@ -228,6 +243,7 @@ public class Post_Ads_Page extends AppCompatActivity {
                                                     @Override
                                                     public void onFailure(@NonNull Exception e) {
                                                         snackbarShow(e);
+                                                        dialogClass.hide();
                                                         Toast.makeText(Post_Ads_Page.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                                         String X = "Something went Wrong";
                                                         notification(X);
@@ -235,9 +251,27 @@ public class Post_Ads_Page extends AppCompatActivity {
                                                 });
 
                                             }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                dialogClass.hide();
+                                                snackbarShow(e);
+                                            }
                                         });
                                     }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        dialogClass.hide();
+                                        snackbarShow(e);
+                                    }
                                 });
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                dialogClass.hide();
+                                snackbarShow(e);
                             }
                         });
                     }
@@ -261,13 +295,13 @@ public class Post_Ads_Page extends AppCompatActivity {
     }
 
     public void notification(String X) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "prabhat.mainactivity.Firebase_Messaging_Services.test");
         builder.setContentTitle("Congratulation !")
                 .setColor(getResources()
                         .getColor(R.color.colorPrimary))
                 .setContentText(X)
                 .setAutoCancel(true)
-                .setSmallIcon(R.drawable.ic_insert_emoticon_black_24dp);
+                .setSmallIcon(R.drawable.ic_baseline_notifications_active_24);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1, builder.build());
     }
@@ -290,5 +324,44 @@ public class Post_Ads_Page extends AppCompatActivity {
         dialogClass.show();
         dialogClass.setContentView(R.layout.customedialog);
         dialogClass.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+    }
+
+    public void checkPermission(String permission, int requestCode) {
+        if (ContextCompat.checkSelfPermission(Post_Ads_Page.this, permission) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(Post_Ads_Page.this, new String[]{permission}, requestCode);
+        } else {
+            Toast.makeText(this, "Permission is already granted", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == STORAGE_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Storage Permission Granted", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(intent, gallaypick);
+            } else {
+
+                Toast.makeText(this,
+                        "Storage Permission Denied",
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+        }
+    }
+
+    public void createChannel() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("prabhat.mainactivity.Firebase_Messaging_Services.test", "chanel 1", NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription("");
+            channel.enableLights(true);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
     }
 }

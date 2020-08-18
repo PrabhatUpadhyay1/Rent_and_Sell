@@ -2,7 +2,6 @@ package com.prabhat.mainactivity.Login_Details;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,26 +22,24 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.prabhat.mainactivity.Activities.Home_Page;
 import com.prabhat.mainactivity.R;
-import com.prabhat.mainactivity.Home_Page;
 
 import java.util.HashMap;
 
 public class SignUp_Page extends AppCompatActivity {
-    ConstraintLayout signupLayout;
     EditText email1, password1, phone;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
     ProgressDialog dialog;
     String Email1;
-    ConstraintLayout Login;
+    RelativeLayout SignUp;
     Snackbar snackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
-        signupLayout = findViewById(R.id.signupLayout);
         dialog = new ProgressDialog(SignUp_Page.this);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -48,14 +47,27 @@ public class SignUp_Page extends AppCompatActivity {
 
         email1 = findViewById(R.id.email1);
         password1 = findViewById(R.id.password1);
+        phone = findViewById(R.id.phone);
+        SignUp = findViewById(R.id.SignUp);
 
+
+        ImageView back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Login_Page.class));
+                overridePendingTransition(0,0);
+                finish();
+            }
+        });
 
         //****------------->SignIn TextView
-        TextView loginsignin = findViewById(R.id.loginsignin);
+        TextView loginsignin = findViewById(R.id.signinbtn);
         loginsignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SignUp_Page.this, Login_Page.class));
+                overridePendingTransition(0,0);
                 finish();
 
             }
@@ -65,7 +77,6 @@ public class SignUp_Page extends AppCompatActivity {
         signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 SignUp();
             }
         });
@@ -74,8 +85,9 @@ public class SignUp_Page extends AppCompatActivity {
 
 
     private void snackbarShow(Exception e) {
-        snackbar.make(Login, e.getMessage(), Snackbar.LENGTH_LONG)
+        Snackbar.make(SignUp, e.getMessage(), Snackbar.LENGTH_LONG)
                 .setActionTextColor(getResources().getColor(R.color.White))
+                .setBackgroundTint(getResources().getColor(R.color.colorPrimary))
                 .setDuration(1500)
                 .show();
     }
@@ -87,36 +99,41 @@ public class SignUp_Page extends AppCompatActivity {
     }
 
 
-    private void SignUp(){
+    private void SignUp() {
         Email1 = email1.getText().toString().trim();
         String Password1 = password1.getText().toString().trim();
         String Phone = phone.getText().toString().trim();
         if (Email1.isEmpty()) {
             email1.setError("Please provide Email Id");
             email1.requestFocus();
-        } else if (Email1.contains("@,.,com")) {
+        }
+        if (!Email1.contains("@,.,com")) {
             email1.setError("Please provide correct Email Id");
-        } else if (Password1.isEmpty()) {
+            email1.requestFocus();
+        }
+        if (Password1.isEmpty()) {
             password1.setError("Please provide password");
             password1.requestFocus();
-        } else if (Password1.length() < 8) {
+        }
+        if (Password1.length() < 8) {
             password1.setError("Minimum 8 character requires");
             password1.requestFocus();
-        } else if (Phone.isEmpty()) {
+        }
+        if (Phone.isEmpty()) {
             phone.setError("Please enter Phone no.");
             phone.requestFocus();
-        } else if (!(Phone.length() == 10)) {
+        }
+        if (!(Phone.length() == 10)) {
             phone.setError("Please enter correct phone no.");
             phone.requestFocus();
-        } else if (Email1.isEmpty() && Password1.isEmpty() && Phone.isEmpty()) {
-            Toast.makeText(SignUp_Page.this, "Field are empty", Toast.LENGTH_SHORT).show();
-        } else if (!(Email1.isEmpty() && Password1.isEmpty())) {
+        }
+        if (!Email1.isEmpty() && !Password1.isEmpty()) {
             showLoad();
             firebaseAuth.createUserWithEmailAndPassword(Email1, Password1).addOnCompleteListener(SignUp_Page.this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (!task.isSuccessful()) {
-                        Toast.makeText(SignUp_Page.this, "Please try again", Toast.LENGTH_SHORT).show();
+                        snackbarShow(task.getException());
                         dialog.hide();
                     } else {
                         String Email1 = email1.getText().toString().trim();
@@ -132,7 +149,7 @@ public class SignUp_Page extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 startActivity(new Intent(SignUp_Page.this, Home_Page.class));
-                                Toast.makeText(SignUp_Page.this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUp_Page.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                 dialog.hide();
                                 finish();
                             }

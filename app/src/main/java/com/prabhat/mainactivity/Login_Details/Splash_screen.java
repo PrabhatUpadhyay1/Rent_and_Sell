@@ -1,4 +1,4 @@
-package com.prabhat.mainactivity;
+package com.prabhat.mainactivity.Login_Details;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,8 @@ import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.prabhat.mainactivity.Login_Details.Login_Page;
+import com.prabhat.mainactivity.R;
+
 
 public class Splash_screen extends AppCompatActivity {
     ImageView screen;

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#333"
+    android:background="#fff"
     android:id="@+id/PstAd"
-    tools:context=".Post_Ads_Page">
+    tools:context=".Activities.Post_Ads_Page">
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -14,8 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@drawable/nav_background"
+        android:layout_alignParentBottom="true"
         app:itemIconSize="30dp"
         app:itemIconTint="@color/colorPrimary"
+        android:elevation="10dp"
         app:itemTextColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav_menu" />
@@ -26,29 +28,26 @@
         android:layout_height="140dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
-        android:background="@drawable/shape6"
+        app:cardElevation="10dp"
+        android:background="@drawable/shape"
         android:backgroundTint="#fff"
         android:gravity="fill"
-        app:cardCornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".07">
+        app:cardCornerRadius="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/download">
+            android:background="@drawable/shape">
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clickable="true"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/download" />
+                app:srcCompat="@drawable/download"
+                android:background="@drawable/shape"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -57,113 +56,124 @@
         android:id="@+id/com"
         android:layout_width="match_parent"
         android:layout_height="22dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:text="Image is compulsory"
         android:textAlignment="center"
-        android:textColor="#fff"
+        android:textColor="#444"
+        android:fontFamily="@font/doppio_one"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3"
-        tools:layout_editor_absoluteX="16dp" />
+        android:layout_below="@id/cardView3" />
 
     <EditText
         android:id="@+id/textView9"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:background="@drawable/shape6"
         android:hint="Product name"
+        android:layout_marginTop="20dp"
         android:inputType="textPersonName"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="@font/doppio_one"
         android:textAlignment="textStart"
+        android:elevation=".5dp"
         android:textColor="#000"
+        android:backgroundTint="#F4F4F4"
         android:textColorHint="#000"
         android:textSize="18sp"
         android:paddingStart="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389" />
+        android:layout_below="@+id/com"/>
 
-    <EditText
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/shape6"
-        android:fontFamily="sans-serif-light"
-        android:hint="Product Price"
-        android:inputType="number"
-        android:paddingStart="10dp"
-        android:paddingEnd="20dp"
-        android:textColor="#000"
-        android:textColorHint="#000"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.687" />
-
-    <Button
-        android:id="@+id/bottom3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/shape"
-        android:backgroundTint="#2196F3"
-        android:text="Submit"
-        android:textAllCaps="false"
-        android:textColor="#fff"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.865"/>
 
     <EditText
         android:id="@+id/textView10"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:background="@drawable/shape6"
+        android:backgroundTint="#F4F4F4"
         android:gravity="top"
-        android:hint="Product Description"
+        android:elevation=".5dp"
+        android:hint="Product description"
         android:paddingStart="10dp"
         android:textColor="#000"
-        android:fontFamily="sans-serif-light"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/doppio_one"
         android:textColorHint="#000"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.544" />
+        android:layout_below="@+id/textView9"/>
 
-    <Switch
+    <EditText
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/shape6"
+        android:backgroundTint="#F4F4F4"
+        android:fontFamily="@font/doppio_one"
+        android:hint="Product price"
+        android:inputType="number"
+        android:paddingStart="10dp"
+        android:elevation=".5dp"
+        android:paddingEnd="20dp"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:textSize="18sp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/textView10"/>
+
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter renting price"
+        android:textColor="#444"
+        android:textSize="16sp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/doppio_one"
+        android:layout_marginEnd="26dp"
+        android:layout_below="@+id/textView3"/>
+
+
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch1"
         android:layout_width="146dp"
         android:layout_height="34dp"
         android:layout_marginStart="25dp"
         android:background="@drawable/shape6"
+        android:backgroundTint="#F4F4F4"
+        android:layout_below="@id/textView10"
+        android:layout_toEndOf="@id/textView3"
         android:text="Rent"
         android:textColor="#000"
-        android:fontFamily="sans-serif-light"
+        android:elevation=".5dp"
+        android:fontFamily="@font/doppio_one"
         android:paddingStart="10dp"
         android:longClickable="true"
         android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.687" />
+        android:layout_marginTop="25dp"/>
+
+    <Button
+        android:id="@+id/bottom3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#fff"
+        android:elevation="15dp"
+        android:text="Post"
+        android:textAllCaps="false"
+        android:fontFamily="@font/doppio_one"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_below="@id/textView8"
+        android:layout_marginTop="35dp"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -179,19 +189,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.75" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter Renting Price"
-        android:textColor="#fff"
-        android:textSize="14dp"
-        android:fontFamily="sans-serif-light"
-        android:layout_marginEnd="26dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.913"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

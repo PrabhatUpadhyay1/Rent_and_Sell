@@ -1,7 +1,5 @@
 package com.prabhat.mainactivity.Model;
 
-import java.security.Principal;
-
 public class Home_model {
 
     private String name;

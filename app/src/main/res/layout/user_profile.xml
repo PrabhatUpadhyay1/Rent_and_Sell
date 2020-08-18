@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".User_Profile_Page">
+    android:background="#fff"
+    tools:context=".Activities.User_Profile_Page">
 
     <RelativeLayout
         android:id="@+id/ProfileSection"
@@ -46,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/photobutton"
                 android:layout_marginTop="10dp"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/doppio_one"
                 android:text="Prabhat Upadhyay"
                 android:textAlignment="center"
                 android:textAllCaps="true"
@@ -67,19 +68,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/doppio_one"
                 android:text="Email Address"
-                android:textSize="24sp" />
+                android:textColor="#444"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/Profileemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/doppio_one"
                 android:paddingTop="5dp"
                 android:text="user@xyz.com"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -96,19 +98,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/doppio_one"
                 android:text="Phone Number"
-                android:textSize="24sp" />
+                android:textColor="#444"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/Profilephone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/doppio_one"
                 android:paddingTop="5dp"
                 android:text="870056XXXX"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -125,9 +128,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/doppio_one"
                 android:text="Update your profile"
-                android:textSize="24sp" />
+                android:textColor="#444"
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -137,7 +141,7 @@
                 android:gravity="end"
                 android:paddingEnd="20sp"
                 android:text=">"
-                android:textColor="#000"
+                android:textColor="#444"
                 android:textSize="24sp" />
 
         </LinearLayout>
@@ -151,6 +155,7 @@
             app:itemIconSize="30dp"
             app:itemIconTint="@color/colorPrimary"
             app:itemTextColor="@color/colorPrimary"
+            android:elevation="10dp"
             app:menu="@menu/bottom_nav_menu" />
 
     </RelativeLayout>
@@ -215,12 +220,13 @@
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_below="@+id/profilephoneeditText"
             android:layout_margin="15dp"
-            android:background="@drawable/shape"
+            android:background="@drawable/shape6"
             android:text="Submit"
-            android:textColor="#fff" />
+            android:elevation="10dp"
+            android:textColor="@color/colorPrimary" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#222"
     android:orientation="vertical"
-    tools:context=".About_Page">
+    tools:context=".Activities.About_Page">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,8 +15,8 @@
         android:orientation="vertical">
 
     <ImageView
-       android:layout_width="150dp"
-       android:layout_height="150dp"
+       android:layout_width="130dp"
+       android:layout_height="125dp"
         android:layout_marginBottom="20dp"
         android:layout_weight="1"
        android:src="@drawable/rentlogo"/>
@@ -29,7 +29,7 @@
            android:layout_weight="1"
            android:padding="10dp"
            android:background="@drawable/input"
-           android:fontFamily="monospace"
+           android:fontFamily="@font/doppio_one"
            android:textSize="32dp"
            android:textStyle="bold"
            android:textAlignment="center"
@@ -42,7 +42,7 @@
         android:layout_marginStart="10dp"
         android:gravity="fill"
         android:layout_marginTop="10dp"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/doppio_one"
         android:text="• AIM "
         android:layout_weight="1"
         android:textColor="#2196F3"
@@ -57,7 +57,7 @@
         android:padding="10dp"
         android:layout_weight="1"
         android:layout_marginEnd="5dp"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/doppio_one"
         android:text="The Aim of this App is to provides you a platform to sell or rent your product"
         android:textColor="#fff"
         android:textSize="16dp"/>
@@ -67,7 +67,7 @@
         android:layout_height="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/doppio_one"
         android:gravity="fill"
         android:layout_marginBottom="5dp"
         android:layout_weight="1"
@@ -84,7 +84,7 @@
         android:layout_marginEnd="5dp"
         android:padding="5dp"
         android:layout_weight="1"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/doppio_one"
         android:text='Go to "Post your Ads "Section and chose a photo from from your gallery, enter Product name, product price, product description and choose option "Rent" or "Sell" by sliding the switch and then click on Submit button your product will be live in few second'
         android:textColor="#fff"
         android:textSize="16dp"/>
@@ -94,7 +94,7 @@
         android:layout_height="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/doppio_one"
         android:text="• Contact Us"
         android:gravity="fill"
         android:layout_marginBottom="5dp"
@@ -126,6 +126,7 @@
             android:focusable="true"
             android:longClickable="true"
             android:clickable="true"
+            android:elevation="10dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_phone_in_talk_black_24dp"
             tools:ignore="OnClick" />
@@ -133,7 +134,7 @@
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="monospace"
+            android:fontFamily="@font/doppio_one"
             android:text="Call Us"
             android:layout_weight="1"
             android:layout_gravity="center"
@@ -151,6 +152,7 @@
             android:id="@+id/imageView3"
             android:layout_width="60dp"
             android:layout_weight="1"
+            android:elevation="10dp"
             android:layout_height="60dp"
             android:longClickable="true"
             android:clickable="true"
@@ -165,7 +167,7 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="monospace"
+            android:fontFamily="@font/doppio_one"
             android:layout_gravity="center"
             android:text="Feedback"
             android:textColor="#fff"
@@ -190,7 +192,7 @@
                 android:textColor="#2196F3"
                 android:textStyle="bold"
                 android:textSize="13dp"
-                android:fontFamily="monospace"
+                android:fontFamily="@font/doppio_one"
                 android:layout_marginStart="1dp"
                 android:layout_marginEnd="1dp"
                 android:textAlignment="center"/>

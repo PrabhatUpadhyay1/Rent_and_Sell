@@ -23,28 +23,28 @@
             android:name=".Login_Details.Login_Page"
             android:theme="@style/login" />
         <activity
-            android:name=".Photo_Full_Screen"
+            android:name=".Activities.Photo_Full_Screen"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".Ads_Update_Section"
+            android:name=".Activities.Ads_Update_Section"
             android:icon="@drawable/rentlogo"
             android:label="@string/update"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".User_Ads_Page"
+            android:name=".Activities.User_Ads_Page"
             android:label="@string/youradd"
             android:screenOrientation="locked" />
         <activity
-            android:name=".Ads_fullDescription"
+            android:name=".Activities.Ads_fullDescription"
             android:label="@string/rentandearn"
             android:screenOrientation="userPortrait" />
         <activity
-            android:name=".User_Profile_Page"
+            android:name=".Activities.User_Profile_Page"
             android:label="@string/profile"
             android:screenOrientation="portrait"
             android:theme="@style/login" />
         <activity
-            android:name=".Home_Page"
+            android:name=".Activities.Home_Page"
             android:label="@string/rentandearn"
             android:logo="@drawable/ic_email_black_24dp"
             android:screenOrientation="portrait" />
@@ -54,15 +54,21 @@
             android:value="ca-app-pub-7727898151437452~1085840402" />
 
         <activity
-            android:name=".Post_Ads_Page"
+            android:name=".Activities.Post_Ads_Page"
             android:label="@string/post"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".About_Page"
+            android:name=".Activities.About_Page"
             android:label="@string/a"
             android:screenOrientation="portrait" />
+        <service
+            android:name=".Firebase_Messaging_Services.MessagingServices">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
         <activity
-            android:name=".Splash_screen"
+            android:name=".Login_Details.Splash_screen"
             android:screenOrientation="portrait"
             android:theme="@style/login">
             <intent-filter>
@@ -76,5 +82,4 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
 </manifest>

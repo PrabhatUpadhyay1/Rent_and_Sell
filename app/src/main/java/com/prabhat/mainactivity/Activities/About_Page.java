@@ -1,4 +1,4 @@
-package com.prabhat.mainactivity;
+package com.prabhat.mainactivity.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.prabhat.mainactivity.R;
 
 import java.util.HashMap;
 
@@ -84,7 +85,6 @@ public class About_Page extends AppCompatActivity {
                     firestore.collection("feedback").document().set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-
                             Toast.makeText(About_Page.this, "Sending....", LENGTH_SHORT).show();
                             alertDialog.dismiss();
                             Toast.makeText(About_Page.this, " Thank you for your feedback", LENGTH_SHORT).show();

@@ -1,6 +1,5 @@
 package com.prabhat.mainactivity.Adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -37,7 +36,6 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.MyViewHolder
         return new MyViewHolder(view);
     }
 
-    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
 
@@ -46,12 +44,13 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.MyViewHolder
         holder.product_name.setText(list.get(position).getName());
         holder.product_description.setText(list.get(position).getDescription());
         String colourdecider = list.get(position).getStatus();
+
         if ("Sell".equals(colourdecider)) {
             holder.product_price.setText("₹ " + list.get(position).getPrice());
-            holder.status.setTextColor(R.color.Blue);
+//            holder.status.setTextColor(R.color.Blue);
         } else {
             holder.product_price.setText("₹ " + list.get(position).getPrice() + "/Day");
-            holder.status.setTextColor(R.color.Green);
+         //   holder.status.setTextColor(R.color.Green);
         }
         if (list.get(position).getStatus().equals("Sell")) {
             holder.status.setText("Buy");
@@ -68,7 +67,9 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.MyViewHolder
         final String phone = list.get(position).getPhone1();
         final String costomer = list.get(position).getCustomer();
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        final String email=list.get(position).getEmail();
+        final String id=list.get(position).getId();
+        holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -79,8 +80,8 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.MyViewHolder
                 intent.putExtra("Price", price);
                 intent.putExtra("Description", description);
                 intent.putExtra("image", p);
-                intent.putExtra("email", model.getEmail());
-                intent.putExtra("id", model.getId());
+                intent.putExtra("email", email);
+                intent.putExtra("id", id);
 
                 if (list.get(position).getStatus().equals("Sell")) {
                     intent.putExtra("status", "Buy");
