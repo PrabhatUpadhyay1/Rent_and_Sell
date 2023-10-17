@@ -1,7 +1,8 @@
 # Rent_and_Sell
-It is an Android app created using Android Studio. It provides a platform where user can post their ads to rent and sell their extra stuff.
 
-I used Firebase Cloud to store users' data and Firebase authentication to authenticate user's login and registration details, users can log in using email and password.
+It is an Android app created using Android Studio. It provides a platform where users can post their ads to rent and sell their extra stuff.
+
+I used Firebase Cloud to store users' data and Firebase authentication to authenticate user's login and registration details. Users can log in using their email and password.
 
 <img src="https://user-images.githubusercontent.com/60127661/130100458-df8058d1-b87d-475d-bb22-9612b2961d24.png" alt="Image" width="400" height="100">
 
@@ -12,6 +13,3 @@ I used Firebase Cloud to store users' data and Firebase authentication to authen
 <img src="https://user-images.githubusercontent.com/60127661/130101501-16811118-c0f5-46df-99db-90a40d541df1.jpg" alt="Image" width="400" height="100">
 
 <img src="https://user-images.githubusercontent.com/60127661/130101625-e280ace4-90bd-4214-8e44-afebb56682dd.jpg" alt="Image" width="400" height="100">
-
-
-
